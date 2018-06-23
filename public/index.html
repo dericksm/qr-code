@@ -5,36 +5,16 @@
     <title>QrCode Scanner</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="js/instascan.min.js"></script>
+    <script src="./js/instascan.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <div class="row" id="image">
-            <div class="col-12 text-center">
-                <video id="preview"></video> 
-            </div>
+        <div class="text-center">
+            <video id="video"></video>
         </div>
-
     </div>
-    <script type="text/javascript">
-        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-        scanner.addListener('scan', function (content) {
-          console.log(content);
-        });
-            scanner.addListener('scan', function(content) {
-                window.location.open(content)
-
-            })
-            Instascan.Camera.getCameras().then(cameras => {
-                if(cameras.length > 0) {
-                    scanner.start(cameras[0])
-                } else {
-                    console.error(" nao tem camera")
-                }
-            })
-
-      </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
